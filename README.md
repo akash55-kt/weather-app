@@ -1,0 +1,1 @@
+this is a weather application created using javaScript for get the weather by API
