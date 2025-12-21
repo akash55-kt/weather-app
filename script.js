@@ -20,8 +20,6 @@ async function getWeatherByCity(city) {
         return;
     }
 
-    console.log(data);
-
     const lat = data[0].lat;
     const lon = data[0].lon;
     const cityName = data[0].name;
