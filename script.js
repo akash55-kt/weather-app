@@ -19,7 +19,7 @@ async function getWeatherByCity(city) {
         cardBody.innerHTML = `<h1 class="display-4 lh-1 text-body-emphasis">City not Found</h1>`;
         return;
     }
-
+    
     const lat = data[0].lat;
     const lon = data[0].lon;
     const cityName = data[0].name;
