@@ -19,7 +19,7 @@ async function getWeatherByCity(city) {
         cardBody.innerHTML = `<h1 class="display-4 lh-1 text-body-emphasis">City not Found</h1>`;
         return;
     }
-    
+
     const lat = data[0].lat;
     const lon = data[0].lon;
     const cityName = data[0].name;
@@ -30,12 +30,21 @@ async function getWeatherByCity(city) {
 
     const weatherData = await weatherResponse.json();
 
+
     //current weather
-    cityEl.innerText = cityName;
-    tempEl.innerText = `${weatherData.current_weather.temperature} °C`;
-    timeEl.innerText = weatherData.current_weather.time;
-    humidityEl.innerText = `Humidity: ${weatherData.hourly.relative_humidity_2m[0]}%`;
-    windSpeedEl.innerText = `Wind: ${weatherData.current_weather.windspeed} km/h`;
+    // cityEl.innerText = cityName;
+    // tempEl.innerText = `${weatherData.current_weather.temperature} °C`;
+    // timeEl.innerText = weatherData.current_weather.time;
+    // humidityEl.innerText = `Humidity: ${weatherData.hourly.relative_humidity_2m[0]}%`;
+    // windSpeedEl.innerText = `Wind: ${weatherData.current_weather.windspeed} km/h`;
+
+    cardBody.innerHTML = `<h4 class="card-title" id="city">${cityName}</h4>
+                        <h1 class="display-4" id="temp">${weatherData.current_weather.temperature}°C </h1>
+                        <p class="lead" id="time">${weatherData.current_weather.time}</p>
+                        <div class="row mt-3">
+                            <div class="col" id="humidity">Humidity: ${weatherData.hourly.relative_humidity_2m[0]}%</div>
+                            <div class="col" id="wind-speed">Wind: ${weatherData.current_weather.windspeed} km/h</div>
+                        </div>`
 
     //five day forecast
     forecastEl.innerHTML = "";
